@@ -1,9 +1,10 @@
+from os import system, name
+from time import sleep
 import random
 
 show_menu = True
-approved = []
-filted_list = []
-filt_approved = approved.copy()
+# approved = []
+filt_approved = []
 
 class Restaurant:
     def __init__(self, name, cuisine):
@@ -11,6 +12,7 @@ class Restaurant:
         self.cuisine = cuisine
 
 def menu():
+    system('cls')
     print("Welcome to DinDin!")
     print("1. See what's for dinner!")
     print("2. Not in the mood for something? Let us know.")
@@ -20,6 +22,7 @@ def menu():
     selector = input("What would you like to do? Pick a number. ")
     if selector == "1":
         randomize()
+        sleep(3)
     elif selector == "2":
         filter()
     elif selector == "3":
@@ -33,8 +36,10 @@ def addrest():
     name = input("What is the name of the restaurant? ")
     cuisine = input("What type of restaurant is it? ")
 
+    file = open("restaurants.txt", 'a')
     first = Restaurant(name, cuisine)
-    approved.append(first)
+    file.write(approved.append(first)+"\n")
+    file.close()
 
 def delrest():
     rest_one = input("What is the name of the restaurant? ")
@@ -43,16 +48,35 @@ def delrest():
             approved.remove(item)
 
 def filter():
-    filt_one = input("What aren't you in the mood for? ")
-    for item in approved:
-        if item == filt_one:
+    filt_one = input("What are you in the mood for? ")
+    for item in filt_approved:
+        if item.cuisine == filt_one:
             filt_approved.remove(item)
+    return filt_approved
             
 def randomize():
     rando = random.choice(filt_approved)
     for item in filt_approved:
         if item == rando:
             print(item.name)
+    
+# first_restaurant = Restaurant("ChiChi's", "Mexican")
+# second_restaurant = Restaurant("Taco Bell", "Mexican")
+# third_restaurant = Restaurant("McDonald's", "American")
+# fourth_restaurant = Restaurant("Burger King", "American")
+# fifth_restaurant = Restaurant("China Castle", "Chinese")
+# sixth_restaurant = Restaurant("Mussel Burger", "American")
+# seventh_restaurant = Restaurant("Taco Luchador", "Mexican")
+# eighth_restaurant = Restaurant("Brasserie Provence", "French")
+# approved.append(first_restaurant)
+# approved.append(second_restaurant)
+# approved.append(third_restaurant)
+# approved.append(fourth_restaurant)
+# approved.append(fifth_restaurant)
+# approved.append(sixth_restaurant)
+# approved.append(seventh_restaurant)
+# approved.append(eighth_restaurant)
 
-# while show_menu:
-#     menu()
+
+while show_menu:
+    menu()

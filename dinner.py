@@ -3,7 +3,7 @@ from time import sleep
 import random
 
 show_menu = True
-# approved = []
+approved = []
 filt_approved = []
 
 class Restaurant:
@@ -48,7 +48,7 @@ def delrest():
             approved.remove(item)
 
 def filter():
-    filt_one = input("What are you in the mood for? ")
+    filt_one = input("What are you not in the mood for? ")
     for item in filt_approved:
         if item.cuisine == filt_one:
             filt_approved.remove(item)
@@ -60,22 +60,22 @@ def randomize():
         if item == rando:
             print(item.name)
     
-# first_restaurant = Restaurant("ChiChi's", "Mexican")
-# second_restaurant = Restaurant("Taco Bell", "Mexican")
-# third_restaurant = Restaurant("McDonald's", "American")
-# fourth_restaurant = Restaurant("Burger King", "American")
-# fifth_restaurant = Restaurant("China Castle", "Chinese")
-# sixth_restaurant = Restaurant("Mussel Burger", "American")
-# seventh_restaurant = Restaurant("Taco Luchador", "Mexican")
-# eighth_restaurant = Restaurant("Brasserie Provence", "French")
-# approved.append(first_restaurant)
-# approved.append(second_restaurant)
-# approved.append(third_restaurant)
-# approved.append(fourth_restaurant)
-# approved.append(fifth_restaurant)
-# approved.append(sixth_restaurant)
-# approved.append(seventh_restaurant)
-# approved.append(eighth_restaurant)
+first_restaurant = Restaurant("ChiChi's", "Mexican")
+second_restaurant = Restaurant("Taco Bell", "Mexican")
+third_restaurant = Restaurant("McDonald's", "American")
+fourth_restaurant = Restaurant("Burger King", "American")
+fifth_restaurant = Restaurant("China Castle", "Chinese")
+sixth_restaurant = Restaurant("Mussel Burger", "American")
+seventh_restaurant = Restaurant("Taco Luchador", "Mexican")
+eighth_restaurant = Restaurant("Brasserie Provence", "French")
+approved.append(first_restaurant)
+approved.append(second_restaurant)
+approved.append(third_restaurant)
+approved.append(fourth_restaurant)
+approved.append(fifth_restaurant)
+approved.append(sixth_restaurant)
+approved.append(seventh_restaurant)
+approved.append(eighth_restaurant)
 
 
 while show_menu:

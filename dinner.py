@@ -4,7 +4,7 @@ import random
 
 show_menu = True
 approved = []
-filt_approved = []
+filt = ""
 
 class Restaurant:
     def __init__(self, name, cuisine):
@@ -12,7 +12,7 @@ class Restaurant:
         self.cuisine = cuisine
 
 def menu():
-    system('cls')
+    # system('cls')
     print("Welcome to DinDin!")
     print("1. See what's for dinner!")
     print("2. Not in the mood for something? Let us know.")
@@ -22,7 +22,7 @@ def menu():
     selector = input("What would you like to do? Pick a number. ")
     if selector == "1":
         randomize()
-        sleep(3)
+        # sleep(3)
     elif selector == "2":
         filter()
     elif selector == "3":
@@ -35,11 +35,8 @@ def menu():
 def addrest():
     name = input("What is the name of the restaurant? ")
     cuisine = input("What type of restaurant is it? ")
-
-    file = open("restaurants.txt", 'a')
     first = Restaurant(name, cuisine)
-    file.write(approved.append(first)+"\n")
-    file.close()
+    approved.append(first)
 
 def delrest():
     rest_one = input("What is the name of the restaurant? ")
@@ -49,16 +46,22 @@ def delrest():
 
 def filter():
     filt_one = input("What are you not in the mood for? ")
-    for item in filt_approved:
+    for item in approved:
         if item.cuisine == filt_one:
-            filt_approved.remove(item)
-    return filt_approved
+            filt = item
+            return filt
             
 def randomize():
+    filt_approved = []
+    for item in approved:
+        if item.cuisine != filt:
+            filt_approved.append(item)
     rando = random.choice(filt_approved)
     for item in filt_approved:
         if item == rando:
             print(item.name)
+        else:
+            continue
     
 first_restaurant = Restaurant("ChiChi's", "Mexican")
 second_restaurant = Restaurant("Taco Bell", "Mexican")

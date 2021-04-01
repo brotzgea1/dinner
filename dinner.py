@@ -4,7 +4,8 @@ import random
 
 show_menu = True
 approved = []
-filt = ""
+filt_approved = []
+filt = None
 
 class Restaurant:
     def __init__(self, name, cuisine):
@@ -12,17 +13,16 @@ class Restaurant:
         self.cuisine = cuisine
 
 def menu():
-    # system('cls')
+    system('cls')
     print("Welcome to DinDin!")
     print("1. See what's for dinner!")
-    print("2. Not in the mood for something? Let us know.")
+    print("2. Not in the mood for someting? Let us know.")
     print("3. Add a restaurant from the list.")
     print("4. Delete a restaurant from the list.")
     print("5. Exit")
     selector = input("What would you like to do? Pick a number. ")
     if selector == "1":
-        randomize()
-        # sleep(3)
+        randomize()       
     elif selector == "2":
         filter()
     elif selector == "3":
@@ -45,24 +45,25 @@ def delrest():
             approved.remove(item)
 
 def filter():
-    filt_one = input("What are you not in the mood for? ")
+    filt_one = input("Not in the mood for something? Let us know. ")
+    filt_approved.clear()
     for item in approved:
-        if item.cuisine == filt_one:
-            filt = item
-            return filt
+        if item.cuisine != filt_one and item.name != filt_one:
+            filt_approved.append(item)
             
 def randomize():
-    filt_approved = []
-    for item in approved:
-        if item.cuisine != filt:
-            filt_approved.append(item)
-    rando = random.choice(filt_approved)
-    for item in filt_approved:
-        if item == rando:
-            print(item.name)
-        else:
-            continue
-    
+    try:
+        rando = random.choice(filt_approved)
+        for item in filt_approved:
+            if item == rando:
+                print(item.name)
+    except:
+        rando = random.choice(approved)
+        for item in approved:
+            if item == rando:
+                print(item.name)
+    sleep(3)
+
 first_restaurant = Restaurant("ChiChi's", "Mexican")
 second_restaurant = Restaurant("Taco Bell", "Mexican")
 third_restaurant = Restaurant("McDonald's", "American")

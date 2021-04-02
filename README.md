@@ -5,4 +5,4 @@ dinner.py is a solution to the age old problem of figuring out where to go for d
 3. populate and retrieve information from a list or dictionary
 4. create 3 or more functions with at least one returning a value
 
-to run the program, python will need to be installed, but it does not require any special packages. I am using the most recent version of python, however.
+to run the program, python will need to be installed, but it does not require any special packages. I am using the most recent version of python, however. the project is on the "main" branch.

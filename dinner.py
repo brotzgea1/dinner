@@ -17,11 +17,13 @@ class Restaurant:
 def menu():
     system('cls')
     print("Welcome to DinDin!")
+    print("")
     print("1. See what's for dinner!")
     print("2. Not in the mood for someting? Let us know.")
     print("3. Add a restaurant from the list.")
     print("4. Delete a restaurant from the list.")
     print("5. Exit")
+    print("")
     selector = input("What would you like to do? Pick a number. ")
     if selector == "1":
         randomize()       
@@ -62,10 +64,6 @@ def filter():
 
 # tries to select a random element from filtered list, if empty it tries again with the regular list   
 def randomize():
-    for item in approved:
-        print(item.name)
-    for item in filt_approved:
-        print(item.name)
     try:
         rando = random.choice(filt_approved)
         for item in filt_approved:

@@ -1,4 +1,4 @@
-dinner.py is a solution to the age old problem of figuring out where to go for dinner. it utilizes a restaurant class that is stored in a list, which can be filtered, added to, or deleted from using prompts in the master loop.  the features i added in my project are:
+dinner.py is a solution to the age old problem of figuring out where to go for dinner. it utilizes a restaurant class that is stored in a list, which can be filtered, added to, or deleted from using prompts in the master loop. restaurants can be filtered by cuisine or name. the features i added in my project are:
 
 1. implementing a master loop
 2. create a class with multiple instances filled with data
